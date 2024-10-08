@@ -133,5 +133,28 @@ body {
   font-size: smaller;
 }
 
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
 
+.column.is-four-fifths {
+  width: 80%;
+  margin: 0 auto;
+}
 
+.content {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.abstract p {
+  text-align: justify;
+}
+
+@media screen and (max-width: 768px) {
+  .column.is-four-fifths {
+    width: 95%;
+  }
+}
