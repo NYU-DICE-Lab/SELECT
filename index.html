@@ -164,6 +164,84 @@ Our findings show interesting trends, particularly pertaining to recent methods 
   </div>
 </section>
 <!-- End paper abstract -->  
+
+<!-- Citation -->
+<div class="citation">
+  <h3>Citation</h3>
+  <pre><code>
+Feuer, B., Xu, J., Cohen, N., Yubeaton, P., Mittal, G., & Hegde, C. (2024). 
+SELECT: A Large-Scale Benchmark of Data Curation Strategies for Image Classification. 
+arXiv preprint arXiv:2410.05057.
+  </code></pre>
+  <div class="citation-links">
+      <a href="https://arxiv.org/abs/2410.05057" target="_blank" rel="noopener noreferrer">arXiv</a>
+      <a href="https://arxiv.org/pdf/2410.05057.pdf" target="_blank" rel="noopener noreferrer">PDF</a>
+      <button class="bibtex-toggle">BibTeX</button>
+  </div>
+  <pre class="bibtex-content" style="display: none;"><code>
+@misc{feuer2024selectlargescalebenchmarkdata,
+  title={SELECT: A Large-Scale Benchmark of Data Curation Strategies for Image Classification}, 
+  author={Benjamin Feuer and Jiawei Xu and Niv Cohen and Patrick Yubeaton and Govind Mittal and Chinmay Hegde},
+  year={2024},
+  eprint={2410.05057},
+  archivePrefix={arXiv},
+  primaryClass={cs.CV},
+  url={https://arxiv.org/abs/2410.05057}, 
+}
+  </code></pre>
+</div>
+
+<style>
+  .citation {
+      background-color: #f5f5f5;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      padding: 15px;
+      margin: 20px 0;
+  }
+  .citation h3 {
+      margin-top: 0;
+  }
+  .citation pre {
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      padding: 10px;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+  }
+  .citation-links {
+      margin-top: 10px;
+  }
+  .citation-links a, .citation-links button {
+      display: inline-block;
+      margin-right: 10px;
+      padding: 5px 10px;
+      background-color: #007bff;
+      color: white;
+      text-decoration: none;
+      border-radius: 4px;
+      border: none;
+      cursor: pointer;
+  }
+  .citation-links a:hover, .citation-links button:hover {
+      background-color: #0056b3;
+  }
+</style>
+
+<script>
+  document.querySelector('.bibtex-toggle').addEventListener('click', function() {
+      var bibtexContent = document.querySelector('.bibtex-content');
+      if (bibtexContent.style.display === 'none') {
+          bibtexContent.style.display = 'block';
+          this.textContent = 'Hide BibTeX';
+      } else {
+          bibtexContent.style.display = 'none';
+          this.textContent = 'BibTeX';
+      }
+  });
+</script>
+<!-- End citation --> 
   
 <section class="section">
   <div class="container is-max-desktop">
@@ -207,27 +285,78 @@ Our findings show interesting trends, particularly pertaining to recent methods 
   </div>
 </section>
 
-
-<section class="hero is-small">
-  <div class="hero-body">
-    <div class="container has-text-centered">
-      <img src="static/images/imagenetpp.jpg" alt="Static Image Description" />
-      <!-- <h2 class="subtitle">
-        Static image description.
-      </h2> -->
-    </div>
+<section class="section">
+  <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+              <h2 class="title is-3">Introducing ImageNet++</h2>
+              <div class="content has-text-justified">
+                  <p class="c18">
+                      <span class="c0">To establish baseline performance for different curation strategies, we created ImageNet++, the largest and most diverse set of ImageNet-1K training set variations to date. ImageNet++ consists of 5 new dataset "shifts" in addition to the original ImageNet-1K: </span>
+                  </p>
+                  <ol class="c28 lst-kix_st344of4rgcu-0 start" start="1">
+                      <li class="c18 c29 li-bullet-0">
+                          <span class="c0">OI1000: A subset of OpenImages dataset using crowdsourced labeling </span>
+                      </li>
+                      <li class="c18 c29 li-bullet-0"><span class="c0">LA1000 (img2img): Images from LAION dataset selected using embedding-based search </span></li>
+                      <li class="c18 c29 li-bullet-0"><span class="c0">LA1000 (txt2img): Another LAION subset selected using text-based embedding search </span></li>
+                      <li class="c18 c29 li-bullet-0"><span class="c0">SD1000 (img2img): Synthetic images generated from ImageNet using Stable Diffusion </span></li>
+                      <li class="c18 c29 li-bullet-0"><span class="c0">SD1000 (txt2img): Synthetic images generated using class names as prompts </span></li>
+                  </ol>
+                  <p class="c10"><span class="c0"></span></p>
+                  <p class="c18"><span class="c9">The benchmark also includes several analytical metrics to help understand dataset properties without requiring model training, such as class imbalance measures and image quality scores.</span></p>
+                  <img src="static/images/imagenetpp.jpg" alt="The ImageNet++ distribution shifts" />
+              </div>
+          </div>
+      </div>
   </div>
 </section>
 
+<section class="section">
+  <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+              <h2 class="title is-3">Key Findings</h2>
+              <div class="content has-text-justified">
+                  <p class="c18">
+                      <span class="c0">After extensive experimentation, training over 130 models on these datasets, we uncovered several important insights: </span>
+                  </p>
+                  <ol class="c28 lst-kix_st344of4rgcu-0 start" start="1">
+                    <li class="c18 c29 li-bullet-0"><span class="c0"><strong>Expert curation still reigns supreme:</strong> Despite advances in AI and data collection methods, no reduced-cost strategy outperformed the original expert-curated ImageNet dataset across all metrics.</span></li>
+                    <li class="c18 c29 li-bullet-0"><span class="c0"><strong>Embedding-based search shows promise:</strong> Among the reduced-cost methods, embedding-based search (used in LA1000 shifts) consistently outperformed synthetic data generation approaches.</span></li>
+                    <li class="c18 c29 li-bullet-0"><span class="c0"><strong>Human curation isn't always best:</strong> Surprisingly, the crowdsourced OI1000 dataset often underperformed compared to automated methods like LA1000, likely due to greater label imbalance.</span></li>
+                    <li class="c18 c29 li-bullet-0"><span class="c0"><strong>Bigger isn't always better:</strong> The smallest dataset, LA1000 (img2img), often outperformed larger datasets, highlighting the importance of curation quality over quantity.</span></li>
+                    <li class="c18 c29 li-bullet-0"><span class="c0"><strong>Image-conditioned methods outperform text-based ones:</strong> Across different curation strategies, methods that used images as a starting point (img2img) generally performed better than those using only text descriptions (txt2img).</span></li>
+                  </ol>
+                  <img src="static/images/data-curation-perf.png" alt="Comparative performance of data curation methods, visualized in a radar plot" />
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
 
-<section class="hero is-small">
-  <div class="hero-body">
-    <div class="container has-text-centered">
-      <img src="static/images/data-curation-perf.png" alt="Comparative performance of data curation methods, visualized in a radar plot" />
-      <!--  <h2 class="subtitle">
-        Static image description.
-      </h2> -->
-    </div>
+<section class="section">
+  <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+              <h2 class="title is-3">Implications and Future Work</h2>
+              <div class="content has-text-justified">
+                  <p class="c18">
+                      <span class="c0">The SELECT benchmark and the insights gained from ImageNet++ open up several important avenues for future research: </span>
+                  </p>
+                  <ol class="c28 lst-kix_st344of4rgcu-0 start" start="1">
+                    <li class="c18 c29 li-bullet-0"><span class="c0"><strong>Improving reduced-cost curation:</strong> While no method matched expert curation, the strong performance of embedding-based search suggests promising directions for developing more efficient curation techniques.</span></li>
+                    <li class="c18 c29 li-bullet-0"><span class="c0"><strong>Addressing class imbalance:</strong> The poor performance of the crowdsourced OI1000 dataset highlights the critical importance of maintaining class balance during data collection.</span></li>
+                    <li class="c18 c29 li-bullet-0"><span class="c0"><strong>Developing better quality metrics:</strong> Current image and label quality metrics showed little correlation with actual model performance, indicating a need for more sophisticated evaluation methods.</span></li>
+                    <li class="c18 c29 li-bullet-0"><span class="c0"><strong>Refining synthetic data generation:</strong> While synthetic data underperformed in this study, there's potential to improve these methods to better complement real-world datasets.</span></li>
+                  </ol>
+                  <p class="c18">
+                    <span class="c0">We are very excited about the future of SELECT and actively would like to partner with researchers do develop new methods for data curation. If you&rsquo;d like to contribute or have
+                      any questions, <a href="mailto:bf996@nyu.edu">please get in touch</a>. </span>
+                </p>
+              </div>
+          </div>
+      </div>
   </div>
 </section>
 
